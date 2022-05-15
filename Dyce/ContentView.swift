@@ -13,7 +13,10 @@ struct ContentView: View {
   }
   
   func didPressRollDice() {
-    print("User pressed roll dice.")
+    let die1 = Int.random(in: 1...6)
+    let die2 = Int.random(in: 1...6)
+    print("Die1: \(die1)")
+    print("Die2: \(die2)")
   }
 }
 
