@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    Button("Roll Dice", action: {})
+    Button("Roll Dice", action: didPressRollDice)
       .font(.title2)
       .padding()
       .foregroundColor(.blue)
@@ -10,6 +10,10 @@ struct ContentView: View {
         RoundedRectangle(cornerRadius: 20)
           .stroke(Color.gray, lineWidth: 2)
       )
+  }
+  
+  func didPressRollDice() {
+    print("User pressed roll dice.")
   }
 }
 
