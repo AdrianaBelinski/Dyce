@@ -1,22 +1,31 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State var dice: (Int, Int)? = nil
+  
   var body: some View {
-    Button("Roll Dice", action: didPressRollDice)
-      .font(.title2)
-      .padding()
-      .foregroundColor(.blue)
-      .background(
-        RoundedRectangle(cornerRadius: 20)
-          .stroke(Color.gray, lineWidth: 2)
-      )
+    VStack {
+      if let (die1, die2) = dice {
+        Text("Your dice are: \(die1) & \(die2)")
+      } else {
+        Text("Click below to roll dice.")
+      }
+      
+      Button("Roll Dice", action: didPressRollDice)
+        .font(.title2)
+        .padding()
+        .foregroundColor(.blue)
+        .background(
+          RoundedRectangle(cornerRadius: 20)
+            .stroke(Color.gray, lineWidth: 2)
+        )
+    }
   }
   
   func didPressRollDice() {
     let die1 = Int.random(in: 1...6)
     let die2 = Int.random(in: 1...6)
-    print("Die1: \(die1)")
-    print("Die2: \(die2)")
+    dice = (die1, die2) //we create a state variable. System then knows it has to update the body.
   }
 }
 
