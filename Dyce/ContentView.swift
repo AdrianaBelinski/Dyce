@@ -2,8 +2,14 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    Text("Hello, world!")
+    Button("Roll Dice", action: {})
+      .font(.title2)
       .padding()
+      .foregroundColor(.blue)
+      .background(
+        RoundedRectangle(cornerRadius: 20)
+          .stroke(Color.gray, lineWidth: 2)
+      )
   }
 }
 
