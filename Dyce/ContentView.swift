@@ -15,7 +15,12 @@ struct ContentView: View {
             .frame(width: 100, height: 100)
         }
       } else {
-        Text("Click below to roll dice.")
+        VStack {
+          Image("dice-in-motion")
+            .resizable()
+            .frame(width: 100, height: 100)
+          Text("Click below to roll dice.")
+        }
       }
       
       Button("Roll Dice", action: didPressRollDice)
