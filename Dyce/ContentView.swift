@@ -39,10 +39,11 @@ struct ContentView: View {
     Button("Roll Dice", action: didPressRollDice)
       .font(.title2)
       .padding()
-      .foregroundColor(.blue)
+      .foregroundColor(.modernBlue)
       .background(
         RoundedRectangle(cornerRadius: 20)
-          .stroke(Color.gray, lineWidth: 2) //485EFF
+          .stroke(Color.modernBlue, lineWidth: 3)
+          .background(Color.white)
       )
   }
   
