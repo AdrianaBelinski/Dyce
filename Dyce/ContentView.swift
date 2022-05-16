@@ -8,7 +8,13 @@ struct ContentView: View {
   var body: some View {
     ZStack {
       background
+      
       VStack {
+        Text("DYCE ROLL")
+          .font(.system(size: 60))
+          .fontWeight(.heavy)
+          .foregroundColor(.modernBlue)
+        
         if let (die1, die2) = dice {
           HStack {
             Image(systemName: "die.face.\(die1)")
@@ -26,6 +32,7 @@ struct ContentView: View {
             Text("Click below to roll dice.")
           }
         }
+        
         rollButton
       }
     }
