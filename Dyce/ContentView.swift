@@ -36,15 +36,18 @@ struct ContentView: View {
   }
   
   var rollButton: some View {
-    Button("Roll Dice", action: didPressRollDice)
-      .font(.title2)
-      .padding()
-      .foregroundColor(.modernBlue)
-      .background(
-        RoundedRectangle(cornerRadius: 20)
-          .stroke(Color.modernBlue, lineWidth: 3)
-          .background(Color.white)
-      )
+    Button(action: didPressRollDice) {
+      Text("Roll Dice")
+        .font(.title)
+        .padding(.vertical, 20)
+        .padding(.horizontal, 40)
+        .foregroundColor(.modernBlue)
+        .background(
+          RoundedRectangle(cornerRadius: 20)
+            .stroke(Color.modernBlue, lineWidth: 3)
+            .background(Color.white)
+        )
+    }
   }
   
   func didPressRollDice() {
