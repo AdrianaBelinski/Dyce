@@ -3,6 +3,8 @@ import SwiftUI
 struct ContentView: View {
   @State var dice: (Int, Int)? = nil
   
+  let generator = UINotificationFeedbackGenerator()
+  
   var body: some View {
     ZStack {
       background
@@ -54,6 +56,8 @@ struct ContentView: View {
     let die1 = Int.random(in: 1...6)
     let die2 = Int.random(in: 1...6)
     dice = (die1, die2) //we create a state variable. System then knows it has to update the body.
+
+    generator.notificationOccurred(.success)
   }
 }
 
