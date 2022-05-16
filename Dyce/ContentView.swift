@@ -6,7 +6,14 @@ struct ContentView: View {
   var body: some View {
     VStack {
       if let (die1, die2) = dice {
-        Text("Your dice are: \(die1) & \(die2)")
+        HStack {
+          Image(systemName: "die.face.\(die1)")
+            .resizable()
+            .frame(width: 100, height: 100)
+          Image(systemName: "die.face.\(die2)")
+            .resizable()
+            .frame(width: 100, height: 100)
+        }
       } else {
         Text("Click below to roll dice.")
       }
