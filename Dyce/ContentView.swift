@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
   @State var dice: (Int, Int)? = nil
+  @State var numberOfDice = 2
   
   let generator = UINotificationFeedbackGenerator()
   
@@ -9,11 +10,12 @@ struct ContentView: View {
     ZStack {
       background
       
-      VStack {
+      VStack(spacing: 40) {
         Text("DYCE ROLL")
           .font(.system(size: 60))
-          .fontWeight(.heavy)
+          .fontWeight(.bold)
           .foregroundColor(.modernBlue)
+          .padding(.bottom, 20)
         
         if let (die1, die2) = dice {
           HStack {
@@ -34,6 +36,25 @@ struct ContentView: View {
         }
         
         rollButton
+       
+        HStack{
+          Button(action: {}) {
+            Image(systemName: "minus.circle")
+              .resizable()
+              .frame(width: 30, height: 30)
+              .foregroundColor(.modernBlue)
+          }
+          
+          Text("\(numberOfDice) dice")
+            .font(.title)
+          
+          Button(action:{}) {
+            Image(systemName: "plus.circle")
+              .resizable()
+              .frame(width: 30, height: 30)
+              .foregroundColor(.modernBlue)
+          }
+        }
       }
     }
   }
