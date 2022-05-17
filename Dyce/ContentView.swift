@@ -42,8 +42,9 @@ struct ContentView: View {
             Image(systemName: "minus.circle")
               .resizable()
               .frame(width: 30, height: 30)
-              .foregroundColor(.modernBlue)
+              .foregroundColor(numberOfDice <= 1 ? .gray : .modernBlue)
           }
+          .disabled(numberOfDice <= 1)
           
           Text("\(numberOfDice) dice")
             .font(.title)
@@ -52,8 +53,9 @@ struct ContentView: View {
             Image(systemName: "plus.circle")
               .resizable()
               .frame(width: 30, height: 30)
-              .foregroundColor(.modernBlue)
+              .foregroundColor(numberOfDice >= 6 ? .gray : .modernBlue)
           }
+          .disabled(numberOfDice >= 6)
         }
       }
     }
