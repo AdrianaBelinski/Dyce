@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State var dice: (Int, Int)? = nil
+  @State var dice: [Int]? = nil
   @State var numberOfDice = 2
   
   let generator = UINotificationFeedbackGenerator()
@@ -17,14 +17,13 @@ struct ContentView: View {
           .foregroundColor(.modernBlue)
           .padding(.bottom, 20)
         
-        if let (die1, die2) = dice {
-          HStack {
-            Image(systemName: "die.face.\(die1)")
-              .resizable()
-              .frame(width: 100, height: 100)
-            Image(systemName: "die.face.\(die2)")
-              .resizable()
-              .frame(width: 100, height: 100)
+        if let dice = dice {
+          ForEach(0 ..< dice.count, id: \.self) { i in
+            HStack {
+              Image(systemName: "die.face.\(dice[i])")
+                .resizable()
+                .frame(width: 100, height: 100)
+            }
           }
         } else {
           VStack {
@@ -83,9 +82,11 @@ struct ContentView: View {
   }
   
   func rollDice() {
-    let die1 = Int.random(in: 1...6)
-    let die2 = Int.random(in: 1...6)
-    dice = (die1, die2) //we create a state variable. System then knows it has to update the body.
+    var newDice: [Int] = [] //we create a state variable. System then knows it has to update the body.
+    for _ in 1...numberOfDice {
+      newDice.append(Int.random(in: 1...6))
+    }
+    self.dice = newDice
 
     generator.notificationOccurred(.success)
   }
