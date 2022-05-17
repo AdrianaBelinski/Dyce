@@ -38,7 +38,7 @@ struct ContentView: View {
         rollButton
        
         HStack{
-          Button(action: {}) {
+          Button(action: decrementDice) {
             Image(systemName: "minus.circle")
               .resizable()
               .frame(width: 30, height: 30)
@@ -48,7 +48,7 @@ struct ContentView: View {
           Text("\(numberOfDice) dice")
             .font(.title)
           
-          Button(action:{}) {
+          Button(action: incrementDice) {
             Image(systemName: "plus.circle")
               .resizable()
               .frame(width: 30, height: 30)
@@ -66,7 +66,7 @@ struct ContentView: View {
   }
   
   var rollButton: some View {
-    Button(action: didPressRollDice) {
+    Button(action: rollDice) {
       Text("Roll Dice")
         .font(.title)
         .padding(.vertical, 20)
@@ -80,13 +80,22 @@ struct ContentView: View {
     }
   }
   
-  func didPressRollDice() {
+  func rollDice() {
     let die1 = Int.random(in: 1...6)
     let die2 = Int.random(in: 1...6)
     dice = (die1, die2) //we create a state variable. System then knows it has to update the body.
 
     generator.notificationOccurred(.success)
   }
+  
+  func decrementDice() {
+    numberOfDice -= 1
+  }
+  
+  func incrementDice() {
+    numberOfDice += 1
+  }
+  
 }
 
 struct ContentView_Previews: PreviewProvider {
