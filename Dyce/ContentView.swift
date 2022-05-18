@@ -18,13 +18,7 @@ struct ContentView: View {
           .padding(.bottom, 20)
         
         if let dice = dice {
-          ForEach(0 ..< dice.count, id: \.self) { i in
-            HStack {
-              Image(systemName: "die.face.\(dice[i])")
-                .resizable()
-                .frame(width: 100, height: 100)
-            }
-          }
+          DyceResultsView(dice: dice)
         } else {
           VStack {
             Image("dice-in-motion")
