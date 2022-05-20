@@ -87,10 +87,12 @@ struct ContentView: View {
   
   func decrementDice() {
     numberOfDice -= 1
+    rollDice()
   }
   
   func incrementDice() {
     numberOfDice += 1
+    rollDice()
   }
   
 }
