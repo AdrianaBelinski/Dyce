@@ -21,10 +21,9 @@ struct ContentView: View {
           DyceResultsView(dice: dice)
         } else {
           VStack {
-            Image("dice-in-motion")
+            Image("dyceroll-icon-transparent")
               .resizable()
-              .frame(width: 100, height: 100)
-            Text("Click below to roll dice.")
+              .frame(width: 150, height: 150)
           }
         }
         
